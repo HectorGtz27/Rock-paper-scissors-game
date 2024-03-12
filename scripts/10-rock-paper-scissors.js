@@ -11,6 +11,26 @@ if (savedScore) {
 
 updateScoreElement();
 
+let isAutoPlaying = false;
+let intervalId;
+const autoPlayButton = document.querySelector(".auto-play-button");
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(function () {
+      const playerMove2 = pickComputerMove();
+
+      makeMove(playerMove2);
+    }, 1000);
+    autoPlayButton.innerText = "Stop Auto Play";
+    isAutoPlaying = true;
+  } else {
+    // Like this we stop the auto play when the button is clicked again
+    clearInterval(intervalId);
+    autoPlayButton.innerText = "Auto Play";
+    isAutoPlaying = false;
+  }
+}
+
 function makeMove(playerMove) {
   const computerMove = pickComputerMove();
   const resultElement = document.querySelector(".js-result");
