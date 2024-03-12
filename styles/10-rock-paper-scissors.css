@@ -1,3 +1,10 @@
+.container {
+  width: 80%; /* O el ancho que prefieras */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  text-align: center; /* Centra el texto y los elementos inline o inline-block dentro del contenedor */
+  padding: 20px; /* Espacio interior para no tocar los bordes */
+}
+
 body {
   background-color: rgb(25, 25, 25);
   color: white;
