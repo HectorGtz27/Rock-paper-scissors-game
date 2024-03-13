@@ -16,7 +16,7 @@ let intervalId;
 const autoPlayButton = document.querySelector(".auto-play-button");
 function autoPlay() {
   if (!isAutoPlaying) {
-    intervalId = setInterval(function () {
+    intervalId = setInterval(() => {
       const playerMove2 = pickComputerMove();
 
       makeMove(playerMove2);
@@ -30,6 +30,41 @@ function autoPlay() {
     isAutoPlaying = false;
   }
 }
+
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  makeMove("rock");
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  makeMove("paper");
+});
+
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  makeMove("scissors");
+});
+
+document.querySelector(".reset-score-button").addEventListener("click", () => {
+  resetScore();
+});
+
+document.querySelector(".auto-play-button").addEventListener("click", () => {
+  autoPlay();
+});
+
+// In here we add the event listener to the whole body, so we can listen to
+// the keydown event
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    console.log("r");
+    makeMove("rock");
+  } else if (event.key === "p") {
+    console.log("p");
+    makeMove("paper");
+  } else if (event.key === "s") {
+    console.log("s");
+    makeMove("scissors");
+  }
+});
 
 function makeMove(playerMove) {
   const computerMove = pickComputerMove();
