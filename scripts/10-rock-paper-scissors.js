@@ -54,6 +54,7 @@ document.querySelector(".auto-play-button").addEventListener("click", () => {
 // In here we add the event listener to the whole body, so we can listen to
 // the keydown event
 document.body.addEventListener("keydown", (event) => {
+  console.log(event);
   if (event.key === "r") {
     console.log("r");
     makeMove("rock");
@@ -66,6 +67,9 @@ document.body.addEventListener("keydown", (event) => {
   } else if (event.key === "a") {
     console.log("a");
     autoPlay();
+  } else if (event.key === "Backspace") {
+    console.log("Backspace");
+    resetScore();
   }
 });
 
