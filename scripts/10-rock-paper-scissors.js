@@ -63,6 +63,9 @@ document.body.addEventListener("keydown", (event) => {
   } else if (event.key === "s") {
     console.log("s");
     makeMove("scissors");
+  } else if (event.key === "a") {
+    console.log("a");
+    autoPlay();
   }
 });
 
