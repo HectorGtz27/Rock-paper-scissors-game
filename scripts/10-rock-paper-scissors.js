@@ -44,7 +44,7 @@ document.querySelector(".js-scissors-button").addEventListener("click", () => {
 });
 
 document.querySelector(".reset-score-button").addEventListener("click", () => {
-  resetScore();
+  warning();
 });
 
 document.querySelector(".auto-play-button").addEventListener("click", () => {
@@ -102,6 +102,23 @@ function makeMove(playerMove) {
 
   updateScoreElement();
   localStorage.setItem("score", JSON.stringify(score));
+}
+
+function warning() {
+  const warningContainer = document.querySelector(".warning-container");
+  warningContainer.style.display = "block";
+
+  const buttonYes = document.querySelector(".yes-button");
+  const buttonNo = document.querySelector(".no-button");
+
+  buttonYes.addEventListener("click", () => {
+    resetScore();
+    warningContainer.style.display = "none";
+  });
+
+  buttonNo.addEventListener("click", () => {
+    warningContainer.style.display = "none";
+  });
 }
 
 function resetScore() {
